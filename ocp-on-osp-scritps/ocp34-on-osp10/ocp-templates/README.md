@@ -3,3 +3,5 @@
 ## Using the shell scripts
 - sh create_stack.sh xx.yaml
 - sh delete_stack.sh xx.yaml
+- sh nsupdate.sh $IP
+- cp ssh_config ~/.ssh/config
