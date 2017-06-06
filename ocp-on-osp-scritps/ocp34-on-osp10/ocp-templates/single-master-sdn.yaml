@@ -1,0 +1,93 @@
+parameters:
+  ssh_key_name: ocp3 
+  bastion_image: rhel73
+  bastion_flavor: m1.small
+  master_image: rhel73
+  master_flavor: m1.small
+  infra_image: rhel73
+  infra_flavor: m1.small
+  node_image: rhel73
+  node_flavor: m1.medium
+  loadbalancer_image: rhel73 
+  loadbalancer_flavor: m1.small
+  #external_network: public 
+  external_network: public
+  node_count: 1
+  master_count: 1
+  infra_count: 1
+
+  rhn_username: ""
+  rhn_password: ""
+  rhn_pool: "8a85f9823e3d5e43013e3ddd4e2a0977"
+
+  dns_nameserver: 10.0.0.217
+  dns_update_key: ""
+
+  deployment_type: openshift-enterprise
+  domain_name: "ocp3.ghuang.com"
+  master_hostname: "master"
+  node_hostname: "node"
+  infra_hostname: "infra"
+  ssh_user: cloud-user 
+  master_docker_volume_size_gb: 5 
+  node_docker_volume_size_gb: 5
+  infra_docker_volume_size_gb: 5
+  deploy_router: true
+  deploy_registry: true
+
+  #Cloudprovider and registry setting (OSP8)
+  os_auth_url: http://10.0.0.101:5000/v2.0
+  os_username: qe 
+  os_password: 
+  os_tenant_name: qe
+  os_region_name: regionOne 
+  #os_domain_name: default
+  #Used by LoadBalancer, option: none neutron dedicated external 
+  loadbalancer_type: none 
+  #Used by SDN selection, option: none openshift-sdn flannel
+  openshift_sdn: openshift-sdn 
+  registry_volume_size: 10
+  registry_volume_fs: ext4
+  prepare_registry: true
+  system_update: false 
+  internal_subnet: 192.168.10.0/24 
+  container_subnet: 10.0.10.0/24
+  master_server_group_policies: ['anti-affinity']
+  infra_server_group_policies: ['anti-affinity']
+  #autoscaling: true 
+  openshift_nodes_min: 1
+  openshift_nodes_max: 3
+  #volume_quota: 3
+  #container_quota: 3
+
+#LDAP auth
+parameter_defaults:
+    ldap_hostname: 10.66.147.104 
+    ldap_ip: 10.66.147.104
+    ldap_url: ldap://10.66.147.104:389/ou=People,dc=my-domain,dc=com?uid 
+    ldap_preferred_username: uid
+    ldap_insecure: true
+
+resource_registry:
+  #neutron lb
+  #OOShift::IPFailover: /usr/share/openshift-heat-templates/ipfailover_keepalived.yaml
+  #OOShift::LoadBalancer: /usr/share/openshift-heat-templates/loadbalancer_neutron.yaml 
+  ##dedicated lb
+  #OOShift::LoadBalancer: /usr/share/openshift-heat-templates/loadbalancer_dedicated.yaml 
+  #OOShift::IPFailover: /usr/share/openshift-heat-templates/ipfailover_none.yaml
+  ##external lb
+  #OOShift::IPFailover: /usr/share/openshift-heat-templates/ipfailover_none.yaml
+  #OOShift::LoadBalancer: /usr/share/openshift-heat-templates/l
+  ##none lb
+  OOShift::LoadBalancer: /usr/share/openshift-heat-templates/loadbalancer_none.yaml 
+  OOShift::IPFailover: /usr/share/openshift-heat-templates/ipfailover_keepalived.yaml
+  #openshift sdn
+  OOShift::ContainerPort: /usr/share/openshift-heat-templates/sdn_openshift_sdn.yaml
+  #flannel sdn
+  #OOShift::ContainerPort: /usr/share/openshift-heat-templates/sdn_flannel.yaml
+  OOShift::DockerVolume: /usr/share/openshift-heat-templates/volume_docker.yaml
+  OOShift::DockerVolumeAttachment: /usr/share/openshift-heat-templates/volume_attachment_docker.yaml
+  OOShift::RegistryVolume: /usr/share/openshift-heat-templates/registry_ephemeral.yaml
+  #persistent cinder volume, used with registry_volume_id 
+  #OOShift::RegistryVolume: /usr/share/openshift-heat-templates/registry_persistent.yaml
+

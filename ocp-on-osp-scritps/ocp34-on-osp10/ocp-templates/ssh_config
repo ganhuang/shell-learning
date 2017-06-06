@@ -1,0 +1,6 @@
+Host *
+  VerifyHostKeyDNS yes
+  StrictHostKeyChecking no
+  IdentityFile /home/nay/ghuang/keys/ocp3_rsa
+  User cloud-user
+
