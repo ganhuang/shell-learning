@@ -26,7 +26,7 @@ parameters:
 
   deployment_type: openshift-enterprise
   domain_name: "ocp3.ghuang.com"
-  deployment_type: openshift-enterprise                                                                                        [33/1992]
+  deployment_type: openshift-enterprise
   domain_name: "ocp3.ghuang.com"
   master_hostname: "master"
   node_hostname: "node"
@@ -60,7 +60,7 @@ parameters:
   autoscaling: true 
   openshift_nodes_min: 1
   openshift_nodes_max: 5
-  openshift_nodes_max: 5                                                                                                        [0/1992]
+  openshift_nodes_max: 5
 
 #LDAP auth
 parameter_defaults:
