@@ -8,7 +8,7 @@ parameters:
   infra_image: rhel73
   infra_flavor: m1.small
   node_image: rhel73
-  node_flavor: m1.small
+  node_flavor: m1.medium
   loadbalancer_image: rhel73 
   loadbalancer_flavor: m1.small
   #external_network: public 
@@ -55,7 +55,7 @@ parameters:
   container_subnet: 10.0.10.0/24
   master_server_group_policies: ['anti-affinity']
   infra_server_group_policies: ['anti-affinity']
-  autoscaling: false
+  autoscaling: true 
   openshift_nodes_min: 1
   openshift_nodes_max: 2
   #volume_quota: 3
