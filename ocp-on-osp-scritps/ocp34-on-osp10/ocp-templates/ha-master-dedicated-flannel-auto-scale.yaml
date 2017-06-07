@@ -26,8 +26,6 @@ parameters:
 
   deployment_type: openshift-enterprise
   domain_name: "ocp3.ghuang.com"
-  deployment_type: openshift-enterprise
-  domain_name: "ocp3.ghuang.com"
   master_hostname: "master"
   node_hostname: "node"
   infra_hostname: "infra"
@@ -59,7 +57,6 @@ parameters:
   infra_server_group_policies: ['affinity']
   autoscaling: true 
   openshift_nodes_min: 1
-  openshift_nodes_max: 5
   openshift_nodes_max: 5
 
 #LDAP auth
