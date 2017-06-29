@@ -8,3 +8,8 @@
 PS1="\e[1;32m[\\u \\w]\\$\e[m "
 [ghuang ~/git/ganhuang/shell-learning]$
 ```
+- Peer's certificate issuer has been marked as not trusted by the user.
+
+```
+git config --system http.sslverify false
+```
