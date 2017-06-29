@@ -13,3 +13,4 @@ PS1="\e[1;32m[\\u \\w]\\$\e[m "
 ```
 git config --system http.sslverify false
 ```
+- Groovy-based DSL jenkins
