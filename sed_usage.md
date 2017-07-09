@@ -14,3 +14,7 @@ sed -i '34,${s#^      <%= defined?(zone)#        <%= defined?(zone)#g}' $(grep -
 
 sed -i '34,${s#^      <%= defined?(ec2_subnet_id)#        <%= defined?(ec2_subnet_id)#g}' $(grep -rl  "<%= defined?(zone)" ../../ |grep -v openshift-ansible)
 ```
+- append one line
+```
+sed -i '/  deployment_type: openshift-enterprise/a  \ \ openshift_disable_check\:\ disk_availability,memory_availability,package_availability,docker_image_availability,docker_storage,package_version' $(grep -rl "deployment_type\:\ openshift-enterprise" .)
+```
