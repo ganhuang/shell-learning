@@ -14,3 +14,15 @@ PS1="\e[1;32m[\\u \\w]\\$\e[m "
 git config --system http.sslverify false
 ```
 - Groovy-based DSL jenkins
+
+- [sexy promot](https://github.com/twolfson/sexy-bash-prompt) 
+
+```(cd /tmp && git clone --depth 1 --config core.autocrlf=false https://github.com/twolfson/sexy-bash-prompt && cd sexy-bash-prompt && make install) && source ~/.bashrc
+```
+
+- tmux
+
+```
+tmux -S /tmp/tmux-ghuang new -s shared
+tmux -S /tmp/tmux-ghuang attach -t shared
+```
