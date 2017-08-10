@@ -26,3 +26,8 @@ git config --system http.sslverify false
 tmux -S /tmp/tmux-ghuang new -s shared
 tmux -S /tmp/tmux-ghuang attach -t shared
 ```
+
+# shell prompt
+```
+(cd /tmp && git clone --depth 1 --config core.autocrlf=false https://github.com/twolfson/sexy-bash-prompt && cd sexy-bash-prompt && make install) && source ~/.bashrc
+```
