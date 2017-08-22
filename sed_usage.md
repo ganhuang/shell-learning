@@ -31,5 +31,8 @@ sed -i s#all/3.6#all/3.7#g `grep -rl "all\/3\.6" .`
 sed -i s#AtomicOpenShift/3.6#AtomicOpenShift/3.7#g `grep -rl "AtomicOpenShift\/3\.6" .`
 sed -i s#v3.6.0.x#v3.7.0.x#g `grep -rl "v3\.6\.0\.x" .`
 sed -i s#openshift_release:\ v3.6#openshift_release:\ v3.7#g `grep -rl "openshift_release:\ v3\.6" .`
+for f in `find ./ -name *36*`; do mv "${f}" "`echo ${f} | sed "s/36/37/"`";done
+sed -i s#aos-36#aos-37#g `grep -rl "aos-36" .`
+sed -i s#3.6#3.7#g `grep -rl "3\.6" .`
 
 ```
