@@ -23,8 +23,16 @@ git config --system http.sslverify false
 - tmux
 
 ```
-tmux -S /tmp/tmux-ghuang new -s shared
-tmux -S /tmp/tmux-ghuang attach -t shared
+tmux -S /tmp/tmux new -s shared
+tmux -S /tmp/tmux attach -t shared
+
+export TMUX_GROUP=tmux
+groupadd $TMUX_GROUP
+mkdir /var/tmux
+chgrp $TMUX_GROUP /var/tmux
+chmod g+ws /var/tmux
+usermod -aG $TMUX_GROUP user1
+usermod -aG $TMUX_GROUP user2
 ```
 
 # shell prompt
