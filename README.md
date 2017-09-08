@@ -23,8 +23,10 @@ git config --system http.sslverify false
 - tmux
 
 ```
-tmux -S /var/tmux new -s shared
-tmux -S /var/tmux attach -t shared
+tmux -S /tmux/tmux-ghuang new -s shared
+tmux -S /tmux/tmux-ghuang attach -t shared
+
+tmux -S /var/tmux/jiajliu attach -t shared
 
 export TMUX_GROUP=tmux
 groupadd $TMUX_GROUP
