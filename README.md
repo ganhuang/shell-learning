@@ -37,6 +37,13 @@ usermod -aG $TMUX_GROUP user1
 usermod -aG $TMUX_GROUP user2
 ```
 
+- Google Load Balancer
+
+```
+Need deamon: https://github.com/GoogleCloudPlatform/compute-image-packages/blob/master/google_compute_engine/ip_forwarding/ip_forwarding_daemon.py
+https://stackoverflow.com/questions/10259266/what-does-proto-kernel-means-in-unix-routing-table
+```
+
 # shell prompt
 ```
 (cd /tmp && git clone --depth 1 --config core.autocrlf=false https://github.com/twolfson/sexy-bash-prompt && cd sexy-bash-prompt && make install) && source ~/.bashrc
