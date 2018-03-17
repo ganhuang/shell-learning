@@ -37,6 +37,8 @@ usermod -aG $TMUX_GROUP user1
 usermod -aG $TMUX_GROUP user2
 ```
 
+- [RAFT](http://thesecretlivesofdata.com/raft/)
+
 - Google Load Balancer
 
 ```
