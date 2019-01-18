@@ -20,6 +20,8 @@ sed -i '/  deployment_type: openshift-enterprise/a  \ \ openshift_disable_check\
 ```
 
 - Mac append one line
+https://stackoverflow.com/questions/5171901/sed-command-find-and-replace-in-file-and-overwrite-file-doesnt-work-it-empties
+https://unix.stackexchange.com/questions/52131/sed-on-osx-insert-at-a-certain-line
 
 ```
 sed -e '/    always_on                = true/a\'$'\n''\ \ \ \ min_tls_version          = \"1.2\"' test `grep -rl "always.*true" .`
