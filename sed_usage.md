@@ -18,6 +18,13 @@ sed -i '34,${s#^      <%= defined?(ec2_subnet_id)#        <%= defined?(ec2_subne
 ```
 sed -i '/  deployment_type: openshift-enterprise/a  \ \ openshift_disable_check\:\ disk_availability,memory_availability,package_availability,docker_image_availability,docker_storage,package_version' $(grep -rl "deployment_type\:\ openshift-enterprise" .)
 ```
+
+- Mac append one line
+
+```
+sed -e '/    always_on                = true/a\'$'\n''\ \ \ \ min_tls_version          = \"1.2\"' test `grep -rl "always.*true" .`
+```
+
 ```
 sed -i '/\ \ inventory/{s/.*/&\n<% if (not defined?(skip_post_tasks)) or (defined?(skip_post_tasks) and "#{skip_post_tasks}" == "false") %>/;:a;n;ba}' *
 sed -i '$a\<% end %>' hosts.1master+1etcd
